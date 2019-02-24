@@ -1,6 +1,15 @@
+
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
 <script
@@ -10,39 +19,51 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
 <title>Log in with your account</title>
 
+<style>
+div {
+	height: 400px;
+	width: 500px;
+	background-color: powderblue;
+}
+
+.center {
+	margin: auto;
+	width: 40%;
+	padding: 100px;
+}
+</style>
 
 </head>
 
-<body>
+<body class="text-center">
 
-	<div class="container">
-		<form method="POST" action="/login"  class="form-signin">
-		<div align="center">
-			<h2 class="form-heading">Log in</h2>
+	<!-- <div class="container"> -->
+	<form method="POST" action="/login" class="form-signin">
+		<div class="center">
+			<h1 class="h3 mb-3 font-weight-normal"></h1>
+			<label class="sr-only">Username</label> <input name="username"
+				type="text" class="form-control" placeholder="Username" /> <label
+				for="inputPassword" class="sr-only">Password</label> <input
+				name="password" type="password" class="form-control"
+				placeholder="Password" />
 
-			<div class="form-group ${error != null ? 'has-error' : ''}">
-				<span>${message}</span> <input name="username" type="text"
-					class="form-control" placeholder="Username" autofocus="true" /> <input
-					name="password" type="password" class="form-control"
-					placeholder="Password" /> <span>${error}</span>
-
-				<button class="btn btn-lg btn-primary btn-block" type="submit">Log
-					In</button>
-				<h4 class="text-center">
-					<a href="/register">Create an account</a>
-				</h4>
-			</div>
-			</div>
-		</form>
-	</div>
-
+			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign
+				in</button>
+			<h4 class="text-center">
+				<a href="/register">Create an account</a>
+			</h4>
+			<p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+		</div>
+	</form>
 
 </body>
 </html>
+
+
+
+
+
+
+

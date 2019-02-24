@@ -1,8 +1,12 @@
 package com.resource.model;
 
+import javax.validation.constraints.NotNull;
+
 public class Login {
 	
+	@NotNull(message="Please insert username")
 	private String username;
+	@NotNull(message="Please insert username")
 	private String password;
 	public String getUsername() {
 		return username;

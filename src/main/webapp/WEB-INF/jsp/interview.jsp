@@ -8,7 +8,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
 <nav class="navbar navbar-default">
 	<div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
@@ -52,7 +51,7 @@
 				<li><a href="#">Link</a></li>
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown" role="button" aria-haspopup="true"
-					aria-expanded="false">Dropdown <span class="caret"></span></a>
+					aria-expanded="false">Select<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="#">Action</a></li>
 						<li><a href="#">Another action</a></li>
@@ -67,7 +66,8 @@
 	<!-- /.container-fluid -->
 </nav>
 
-<title>Bootstrap 101 Template</title>
+
+<title>Interview|Details</title>
 
 <!-- Bootstrap -->
 <link href="/res/css/bootstrap.min.css" rel="stylesheet">
@@ -83,44 +83,33 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-sm-4 col-md-3">
-				<h4>New Registration Resource</h4>
-				<form:form modelAttribute="Form" action="/save" method="POST"
-					class="well">
+				<h4>New Interviewer Details</h4>
+				<form:form modelAttribute="interviewForm" action="/saveInterview"
+					method="POST" class="well">
 					<!-- Form Name -->
 					<form:hidden path="id" />
 
-				<%-- 	<c:choose>
-						<c:when test="${success}">
-							<div class="alert alert-success" role="alert">...</div>
-						</c:when>
-						<c:otherwise test="${error}">
-							<div class="alert alert-danger" role="alert">...</div>
-						</c:otherwise>
-					</c:choose> --%>
-
-
-
 					<!-- Text input-->
 					<div class="form-group">
-						<label for="user_name">Username</label>
-						<form:input id="user_name" name="user_name" path="user_name"
-							type="text" placeholder="Enter Username" value=""
-							class="form-control input-md" />
+						<label for="interviewer_name">Full Name</label>
+						<form:input id="interviewer_name" name="interviewer_name"
+							path="interviewer_name" type="text" placeholder="Enter Name"
+							value="" class="form-control input-md" />
 					</div>
 
 					<!-- Text input-->
 					<div class="form-group">
-						<label for="user_email">Email</label>
-						<form:input id="user_email" name="user_email" path="user_email"
-							type="text" placeholder="Enter email" value=""
-							class="form-control input-md" />
+						<label for="interviewie_exp">Experience</label>
+						<form:input id="interviewie_exp" name="interviewie_exp"
+							path="interviewie_exp" type="text" placeholder="Enter Experience"
+							value="" class="form-control input-md" />
 					</div>
 
 					<!-- Text input-->
 					<div class="form-group">
-						<label>Password</label>
-						<form:input id="user_password" name="user_password"
-							path="user_password" type="text" placeholder="Enter Password"
+						<label>Skills</label>
+						<form:input id="interviewie_skills" name="interviewie_skills"
+							path="interviewie_skills" type="text" placeholder="Enter Skills"
 							value="" class="form-control input-md" />
 					</div>
 					<!-- Button (Double) -->
@@ -134,15 +123,15 @@
 
 			</div>
 			<div class="col-sm-8 col-md-9">
-				<h4>Resource Master</h4>
+				<h4>Interviewer List</h4>
 				<div class="table-responsive">
 					<table class="table table-striped table-bordered">
 						<thead>
 							<tr>
 								<th>Id</th>
-								<th>User Name</th>
-								<th>Password</th>
-								<th>Email</th>
+								<th>Full Name</th>
+								<th>Experience</th>
+								<th>Skills</th>
 								<th>Action</th>
 								<th>Action</th>
 
@@ -150,23 +139,23 @@
 						</thead>
 						<tbody>
 
-							<c:forEach var="use" items="${userlist}">
+							<c:forEach var="interview" items="${interviewlist}">
 								<tr>
-									<td>${use.id}</td>
-									<td>${use.user_name}</td>
-									<td>${use.user_email}</td>
-									<td>${use.user_password}</td>
+									<td>${interview.id}</td>
+									<td>${interview.interviewer_name}</td>
+									<td>${interview.interviewie_exp}</td>
+									<td>${interview.interviewie_skills}</td>
 									<td style="text-align: center"><a
-										href="deleteUser?id=${use.id}"
-										onclick="if (!(confirm('Are you sure you want to delete this customer?'))) return false">
+										href="/deleteInterviewer?id=${interview.id}"
+										onclick="if (!(confirm('Are you sure you want to delete this Interviewer?'))) return false">
 											<button type="button" class="btn btn-danger btn-sm">
 												<span class="glyphicon glyphicon-trash"></span>
 											</button>
 									</a></td>
 
 									<td style="text-align: center"><a
-										href="register?id=${use.id}"
-										onclick="if (!(confirm('Are you sure you want to edit this customer?'))) return false">
+										href="/interview?id=${interview.id}"
+										onclick="if (!(confirm('Are you sure you want to edit this Iinterviewer?'))) return false">
 											<button type="button" class="btn btn-warning btn-sm">
 												<span class="glyphicon glyphicon-pencil"></span>
 											</button>
