@@ -19,8 +19,8 @@ public class User {
 	private String user_email; 
 	private String user_password;
 	@OneToOne(cascade=CascadeType.ALL )
-	@JoinColumn(name="User_role_id", referencedColumnName="User_role_id")
-	private User_role user_role;
+	@JoinColumn(name="userRole_id")
+	private UserRole user_role;
 
 	public User() {
 	}
@@ -65,15 +65,17 @@ public class User {
 
 
 
-	public User_role getUser_role() {
+	public UserRole getUser_role() {
 		return user_role;
 	}
 
 
 
-	public void setUser_role(User_role user_role) {
+	public void setUser_role(UserRole user_role) {
 		this.user_role = user_role;
 	}
+
+
 
 	
 
